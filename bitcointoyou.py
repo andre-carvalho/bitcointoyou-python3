@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/local/bin/python3
 '''Uma interface simples para a Trade API da corretora Bitcointoyou.
 
 Para utilizar, basta instanciar a classe API com os parâmetros:
