@@ -1,4 +1,5 @@
-#!/usr/local/bin/python3
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 '''Uma interface simples para a Trade API da corretora Bitcointoyou.
 
 Para utilizar, basta instanciar a classe API com os parâmetros:
@@ -45,7 +46,8 @@ class API:
         req = urllib.request.Request('{}{}'.format(base_url, method),
                                      headers=headers)
         resp = urllib.request.urlopen(req)
-        page = resp.read()
+
+        page = resp.read().decode('utf8')
         try:
             page_json = json.loads(page)
             return page_json

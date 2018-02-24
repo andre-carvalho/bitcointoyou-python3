@@ -1,13 +1,24 @@
-#!/usr/local/bin/python3
-import sys
-#sys.path.append('../libbty/')
 import bitcointoyou
+import postgresdb
+import time
 
-api_key = ''
-api_pass = ''
 
-btc = bitcointoyou.API(api_key, api_pass)
+def app():
+    api_key = ''
+    api_pass = ''
 
-tick = btc.Ticker()
+    btc = bitcointoyou.API(api_key, api_pass)
+    def getTicker():
+        tick = btc.Ticker() 
+        if tick is not None:
+            db = postgresdb.bitcoinDAO()
+            db.connect()
+            db.insertData(tick)
+            db.close()
+        time.sleep(60)
+    
+    while True:
+        getTicker()
 
-print(tick)
+if __name__ == "__main__":
+    app()
