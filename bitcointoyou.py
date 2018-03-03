@@ -63,6 +63,16 @@ class API:
         btc.Ticker()'''
         method = '/ticker.aspx'
         return self._baseReq(method)
+
+    def OrderBook(self):
+        '''Retorna as ordens disponíveis para compra e venda.
+
+        Parâmetros: Nenhum
+        
+        Exemplo:
+        btc.OrderBook()'''
+        method = '/orderbook.aspx'
+        return self._baseReq(method)
         
     def Balance(self):
         '''Retorna o saldo disponível para cada moeda (BTC e REAL).
