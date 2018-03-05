@@ -22,7 +22,7 @@ import hmac
 import json
 
 class API:
-    def __init__(self, api_key, api_pass):
+    def __init__(self, api_key='', api_pass=''):
         self.api_key = api_key
         self.api_pass = api_pass
 
